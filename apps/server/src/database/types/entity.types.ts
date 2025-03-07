@@ -13,6 +13,7 @@ import {
   WorkspaceInvitations,
   UserTokens,
   Backlinks,
+  PinUserPages,
 } from './db';
 
 // Workspace
@@ -83,3 +84,8 @@ export type UpdatableUserToken = Updateable<Omit<UserTokens, 'id'>>;
 export type Backlink = Selectable<Backlinks>;
 export type InsertableBacklink = Insertable<Backlink>;
 export type UpdatableBacklink = Updateable<Omit<Backlink, 'id'>>;
+
+// User Pin Page
+export type PinUserPage = Selectable<PinUserPages>;
+export type InsertablePinUserPage = Insertable<PinUserPages>;
+export type UpdatablePinUserPage = Updateable<Omit<PinUserPages, 'id'>>;

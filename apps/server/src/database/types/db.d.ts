@@ -3,13 +3,18 @@
  * Please do not edit it manually.
  */
 
-import type { ColumnType } from "kysely";
+import type { ColumnType } from 'kysely';
 
-export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
-  ? ColumnType<S, I | undefined, U>
-  : ColumnType<T, T | undefined, T>;
+export type Generated<T> =
+  T extends ColumnType<infer S, infer I, infer U>
+    ? ColumnType<S, I | undefined, U>
+    : ColumnType<T, T | undefined, T>;
 
-export type Int8 = ColumnType<string, bigint | number | string, bigint | number | string>;
+export type Int8 = ColumnType<
+  string,
+  bigint | number | string,
+  bigint | number | string
+>;
 
 export type Json = JsonValue;
 
@@ -213,6 +218,14 @@ export interface Workspaces {
   updatedAt: Generated<Timestamp>;
 }
 
+export interface PinUserPages {
+  id: Generated<string>;
+  workspaceId: string;
+  userId: string;
+  pageId: string;
+  order: Int8 | null;
+}
+
 export interface DB {
   attachments: Attachments;
   backlinks: Backlinks;
@@ -227,4 +240,5 @@ export interface DB {
   userTokens: UserTokens;
   workspaceInvitations: WorkspaceInvitations;
   workspaces: Workspaces;
+  pinUserPages: PinUserPages;
 }

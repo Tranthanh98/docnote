@@ -24,6 +24,7 @@ import * as process from 'node:process';
 import { MigrationService } from '@docmost/db/services/migration.service';
 import { UserTokenRepo } from './repos/user-token/user-token.repo';
 import { BacklinkRepo } from '@docmost/db/repos/backlink/backlink.repo';
+import { PinUserPageRepo } from './repos/user_pins/pin_user_pages.repo';
 
 // https://github.com/brianc/node-postgres/issues/811
 types.setTypeParser(types.builtins.INT8, (val) => Number(val));
@@ -70,6 +71,7 @@ types.setTypeParser(types.builtins.INT8, (val) => Number(val));
     AttachmentRepo,
     UserTokenRepo,
     BacklinkRepo,
+    PinUserPageRepo,
   ],
   exports: [
     WorkspaceRepo,
@@ -84,6 +86,7 @@ types.setTypeParser(types.builtins.INT8, (val) => Number(val));
     AttachmentRepo,
     UserTokenRepo,
     BacklinkRepo,
+    PinUserPageRepo,
   ],
 })
 export class DatabaseModule implements OnModuleDestroy, OnApplicationBootstrap {
